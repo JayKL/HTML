@@ -1,0 +1,33 @@
+<html>
+<body>
+
+<form name="FRM">
+	First no:<input type="text" name="T1"><br>
+	Second no:<input type="text" name="T2"><br>
+	Result:<input type="text" name="T3">
+</form>
+
+<script>
+	function addition(){
+		var A,B,C;
+		A=window.document.FRM.T1.value;
+		B=window.document.FRM.T2.value;
+		if (A==""){
+			window.alert("first number is missing");
+			window.document.FRM.Focus();
+		}
+		else if (B==""){
+			window.alert("second number is missing");
+			window.document.FRM.Focus();
+		
+		}else{
+			C=A+B;
+			window.document.FRM.T3.value=parseInt(A) + parseInt(B);
+		}
+	}
+</script>
+	<input type="button" value="addition" name="btn" onclick="addition()">
+
+
+</body>
+</html>
