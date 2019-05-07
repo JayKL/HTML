@@ -1,0 +1,96 @@
+<html>
+<script>
+	var leftmothership=1;
+	var left=1;
+	var top1=415;
+	var Timer;
+	var Timermothership;
+	var check=0;
+	
+	Timermothership=window.setInterval(mothership,5);
+	
+	function fire(){
+		check=1;
+		if (top1<=35){
+			if (document.getElementById("projectile").offsetLeft<=leftmothership+50 & document.getElementById("projectile").offsetLeft>=leftmothership){
+				document.getElementById("mothership").style.visibility="hidden";
+				document.getElementById("projectile").style.visibility="hidden";
+				window.clearInterval(Timermothership);
+				leftmothership=1;
+				Timermothership=window.setInterval(mothership,5);
+			}
+		}
+		if (top1<10){
+			document.getElementById("projectile").style.visibility="hidden";
+			top1=415;
+			window.clearInterval(Timer);
+			check=0;
+		}
+		else{
+			top1-=10;
+		}
+		document.getElementById("projectile").style.top=top1;
+	}
+	
+	function mothership(){
+		document.getElementById("mothership").style.visibility="visible";
+		if (leftmothership>380){
+			leftmothership=1; 
+ 	 		window.clearInterval(Timermothership);
+			Timermothership=window.setInterval(mothership,5);
+		}
+		else{
+			leftmothership+=0.1;		
+		}
+		document.getElementById("mothership").style.left=leftmothership;
+	}
+	
+	
+	function move(){
+
+	if (event.keyCode==39){
+		left+=10;
+		}
+	if (event.keyCode==37){
+		left-=10; 
+	}
+	if (left>400) left=400;
+	if (left<1) left=1;
+	if (event.keyCode==32){
+		if (check==0){
+			document.getElementById("projectile").style.visibility="visible";
+			window.clearInterval(Timer);
+			document.getElementById("projectile").style.left=left+14.2;
+			Timer=window.setInterval(fire,100);
+		}
+	}
+	document.getElementById("mainbody").style.left=left;
+	}
+
+</script>
+
+
+
+<body onKeyDown="move()">
+
+<div Style="Position:absolute;top:10;left:1;background-color:black;height:450;width:450;border: solid green thick">
+
+</div>
+
+<span id="projectile" Style="color:red;visibility:hidden;Position:absolute;top:415;left:14.2">
+*
+</span>
+
+
+<span id="mothership" Style="Position:absolute;top:10;left:1;background-color:green;height:25;width:50">
+</span>
+
+ 
+<span id="mainbody" Style="color:green;Position:absolute;top:400;left:1">
+<pre>
+  _
+_| |_
+</pre>
+</span>
+</body>
+</html>

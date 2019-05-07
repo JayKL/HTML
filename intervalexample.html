@@ -1,0 +1,29 @@
+<html>
+<body>
+<script>
+	var Timer;
+	function what(){
+		window.document.getElementById("centertext").innerHTML+="HELLO";
+	}
+	
+	function start(){
+		Timer=window.setInterval(what,1000);
+	}
+	function stop(){
+		window.clearInterval(Timer);
+	}
+
+</script>
+<form name="FRM">
+<input type="button" onclick="start()" value="start">
+<input type="button" onclick="stop()" value="stop">
+</form>
+
+
+<div id="centertext" style="Position:absolute;top:50%;left:50%;">
+
+uwu
+</div>
+
+</body>
+</html>

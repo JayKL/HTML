@@ -1,0 +1,71 @@
+<html>
+<body>
+<script>
+	function subjectsfuncrevealmenu(inputvar){
+		window.document.getElementById(inputvar).style.visibility="visible";
+
+	}
+	function subjectsfunchidemenu(inputvar){
+		window.document.getElementById(inputvar).style.visibility="hidden";
+	}
+	function subjectsfuncmouseover(inputvar){
+		inputvar.style.backgroundColor="lightgrey";
+	}
+	function subjectsfuncmouseleave(inputvar){
+		inputvar.style.backgroundColor="white";
+	}
+	function subjectsfuncmouseclick(inputvar){
+		var centerspan=window.document.getElementById("centertext");
+			centerspan.innerHTML=inputvar.id;
+			inputvar.style.backgroundColor="white";
+	}
+	
+</script>
+<span id="firstmenu" onmouseleave="subjectsfunchidemenu('visspan')"  >
+<span onmouseover="subjectsfuncrevealmenu('visspan')" style="background-color:white; padding-left:3px;padding-right:4px; padding-top:1px;padding-bot:1px; border: solid black thin">
+
+SUBJECTS
+</span> <BR>
+<span id="visspan" style="visibility:hidden">
+<span id="JAVA" onclick="subjectsfuncmouseclick(this)" onmouseleave="subjectsfuncmouseleave(this)" onmouseover="subjectsfuncmouseover(this)" style="background-color:white; padding-left:3px;padding-right:4px; padding-top:0.5px;padding-bot:0.5px; border: solid black thin">
+   JAVA    
+</span> <BR>
+<span id="PHP" onclick="subjectsfuncmouseclick(this)" onmouseleave="subjectsfuncmouseleave(this)" onmouseover="subjectsfuncmouseover(this)" style="background-color:white; padding-left:3px;padding-right:4px; padding-top:0.5px;padding-bot:0.5px; border: solid black thin">
+   PHP    
+</span> <BR>
+<span id="SQL" onclick="subjectsfuncmouseclick(this)" onmouseleave="subjectsfuncmouseleave(this)" onmouseover="subjectsfuncmouseover(this)" style="background-color:white; padding-left:3px;padding-right:4px; padding-top:0.5px;padding-bot:0.5px; border: solid black thin">
+   SQL    
+</span> <BR>
+</span>
+</span> 
+
+<div style="position:absolute;top:8;left:96;">
+<span id="secondmenu" onmouseleave="subjectsfunchidemenu('visspan2')"   >
+<span onmouseover="subjectsfuncrevealmenu('visspan2')" style="background-color:white; padding-left:3px;padding-right:4px; padding-top:1px;padding-bot:1px; border: solid black thin">
+
+SPORTS
+</span> <BR>
+<span id="visspan2" style="visibility:hidden">
+<span id="CRICKET" onclick="subjectsfuncmouseclick(this)" onmouseleave="subjectsfuncmouseleave(this)" onmouseover="subjectsfuncmouseover(this)" style="background-color:white; padding-left:3px;padding-right:4px; padding-top:0.5px;padding-bot:0.5px; border: solid black thin">
+   CRICKET    
+</span> <BR>
+<span id="FOOTBALL" onclick="subjectsfuncmouseclick(this)" onmouseleave="subjectsfuncmouseleave(this)" onmouseover="subjectsfuncmouseover(this)" style="background-color:white; padding-left:3px;padding-right:4px; padding-top:0.5px;padding-bot:0.5px; border: solid black thin">
+   FOOTBALL    
+</span> <BR>
+<span id="HOCKEY" onclick="subjectsfuncmouseclick(this)" onmouseleave="subjectsfuncmouseleave(this)" onmouseover="subjectsfuncmouseover(this)" style="background-color:white; padding-left:3px;padding-right:4px; padding-top:0.5px;padding-bot:0.5px; border: solid black thin">
+   HOCKEY    
+</span> <BR>
+</span>
+</span>
+</div>
+
+<div id="centertext" style="Position:absolute;top:50%;left:50%;">
+
+uwu
+</div>
+
+
+
+
+</body>
+</html>
