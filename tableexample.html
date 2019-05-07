@@ -1,0 +1,140 @@
+<html>
+<body>
+<form name="FRM">
+
+<input type="text" name="answertextbox" ><br>
+
+</form>
+
+<Table>
+	<TR>
+		<TD> <input type="Button" value="1" onclick="addNum('1')"> </TD>
+		<TD> <input type="Button" value="2" onclick="addNum('2')"> </TD>	
+		<TD> <input type="Button" value="3" onclick="addNum('3')"> </TD>
+		<TD> <input type="Button" value="+" onclick="addHit()"> </TD>
+		<TD> <input type="Button" value="÷" onclick="divideHit()"> </TD>
+	</TR>
+		<TD> <input type="Button" value="4" onclick="addNum('4')"> </TD>
+		<TD> <input type="Button" value="5" onclick="addNum('5')" > </TD>	
+		<TD> <input type="Button" value="6" onclick="addNum('6')"> </TD>
+		<TD> <input type="Button" value="-" onclick="minusHit()"> </TD>
+	</TR>
+		<TD> <input type="Button" value="7" onclick="addNum('7')"> </TD>
+		<TD> <input type="Button" value="8" onclick="addNum('8')"> </TD>	
+		<TD> <input type="Button" value="9" onclick="addNum('9')"> </TD>
+		<TD> <input type="Button" value="×" onclick="timesHit()"> </TD>
+	</TR>
+		</TR>
+		<TD> <input type="Button" value="0" onclick="addNum('0')"> </TD>
+		<TD> <input type="Button" value="." onclick="dotHit('.')"> </TD>	
+		<TD> <input type="Button" value="=" onclick="equalsHit()"> </TD>
+		<TD> <input type="Button" value="C" onclick="clearHit()"> </TD>
+
+	</TR>
+</Table>
+
+<script>
+	var savedval;
+	var storedval;
+	var finalanswer;
+	var operatorvalue;
+	var isminus;
+	var calcstart=0;
+	var minuscheckertwo;
+	operatorvalue="start";
+	storedval="0";
+	isminus=0;
+	function saveValue(){
+		savedval=window.document.FRM.answertextbox.value;
+		window.document.FRM.answertextbox.value="";
+		return savedval;	
+	}
+	function addNum(buttonnumber){
+		var savenum;
+		if (isminus==1){
+			savenum=window.document.FRM.answertextbox.value;
+			window.document.FRM.answertextbox.value=0 - parseFloat(buttonnumber);
+		} else {
+			savenum=window.document.FRM.answertextbox.value;
+			window.document.FRM.answertextbox.value= savenum +buttonnumber;
+		}
+		calcstart=1;
+	}
+	function clearHit(buttonnumber){
+		window.document.FRM.answertextbox.value="";
+		saveValue();
+		storedval="0";
+		operatorvalue="start";
+		isminus=0;
+		calcstart=0;
+	}
+	function dotHit(buttonnumber){
+		if (window.document.FRM.answertextbox.value.indexOf('.')>-1)
+		{
+			alert("already a decimal point invalid number");
+		} else {
+			addNum(".");
+		}
+	}
+	function addHit(){
+		operatorvalue="+";
+		saveValue();
+		finalanswer=parseFloat(savedval) + parseFloat(storedval);
+		storedval=finalanswer;
+	}
+	function minusHit(){
+		minuscheckertwo=window.document.FRM.answertextbox.value;
+		saveValue();
+		if (minuscheckertwo=="") {
+			isminus=1;
+		} else if (operatorvalue=="start"){
+			finalanswer=savedval;
+			storedval=finalanswer;
+			operatorvalue="-";
+		} else {
+			finalanswer=parseFloat(storedval) - parseFloat(savedval);
+			storedval=finalanswer;
+			operatorvalue="-";
+		}
+	}
+	function timesHit(){
+		operatorvalue="x";
+		saveValue();
+		if (storedvalue="0"){
+			finalanswer=savedval;
+		}
+		else{
+			finalanswer=parseFloat(savedval)*parseFloat(storedval);
+		}
+		storedval=finalanswer;
+	}
+	function divideHit(){
+		operatorvalue="÷";
+		saveValue();
+		if (storedvalue="0"){
+			finalanswer=savedval;
+		}else{
+			finalanswer=parseFloat(storedval)/parseFloat(savedval);
+		}
+		storedval=finalanswer;
+	}
+	function equalsHit(x){
+		saveValue();
+		if (operatorvalue=="+"){
+			finalanswer=parseFloat(savedval) + parseFloat(storedval);
+		} else if (operatorvalue=="-"){
+			finalanswer=parseFloat(storedval) - parseFloat(savedval);
+		} else if (operatorvalue=="x"){
+			finalanswer=parseFloat(storedval)*parseFloat(savedval);
+		} else if (operatorvalue=="÷"){
+			finalanswer=parseFloat(storedval)/parseFloat(savedval);
+		}
+		window.document.FRM.answertextbox.value=finalanswer;
+		storedval="0";
+		operatorvalue="start";
+	}
+</script>
+
+
+</body>
+</html>

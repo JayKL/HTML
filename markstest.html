@@ -1,0 +1,67 @@
+<html>
+<body>
+<form name="FRM">
+<font face = "Comic sans MS">
+	Name:  <input type="text" name="nametf" ><br>
+	Physics:   <input type="text" name="phystf" ><br>
+	Chemistry: <input type="text" name="chemtf"> <BR>
+	Math:  <input type="text" name="mathtf" ><BR>
+<H2>Calculations</H2>
+	Total Marks: <input type="text" name="totalmarkstf"><br>
+	Percentage: &nbsp;   <input type="text" name="pertf"><br>
+	Results: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <input type="text" name="restf"><br>
+</font>
+</form>
+
+<script>
+	function calMarks(){
+		var name,phys,chem,math,per;
+		name=window.document.FRM.nametf.value;
+		phys=window.document.FRM.phystf.value;
+		chem=window.document.FRM.chemtf.value;
+		math=window.document.FRM.mathtf.value;
+		
+		if (name==""){
+			window.alert("Name is missing");
+			window.document.FRM.focus();
+		}
+		else if (phys==""){
+			window.alert("Physics mark is missing");
+			window.document.FRM.focus();
+		
+		}
+		else if (chem==""){
+			window.alert("Chemistry mark is missing");
+			window.document.FRM.focus();		
+		}	
+		else if (math==""){
+			window.alert("Math mark is missing");
+			window.document.FRM.focus();		
+		}				
+		else{
+			window.document.FRM.totalmarkstf.value=parseInt(phys) + parseInt(chem) + parseInt(math);
+			window.document.FRM.pertf.value=((parseInt(phys) + parseInt(chem) + parseInt(math))*100)/450;
+			per=window.document.FRM.pertf.value;
+			if (per>=90){
+				window.document.FRM.restf.value="A+";
+			}
+			else if(per>=80){
+				window.document.FRM.restf.value="A";
+			}
+			else if(per>=70){
+				window.document.FRM.restf.value="B";
+			}
+			else if(per>=60){
+				window.document.FRM.restf.value="C";
+			}
+			else if(per>=50){
+				window.document.FRM.restf.value="C";
+			}
+		}
+	}
+</script>
+	<input type="button" value="Calculate Marks" name="btn" onclick="calMarks()">
+
+
+</body>
+</html>

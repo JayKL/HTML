@@ -1,0 +1,65 @@
+<html>
+<body>
+
+<div style="Position:absolute;top:50;left:300">
+	<form>
+		<input type="text" name="mousehovertb" readonly><br>	
+	</form>
+</div>
+
+<script>
+	function increment(){
+		var savenumb;
+		if (window.document.forms[0].mousehovertb.value==""){
+			window.document.forms[0].mousehovertb.value="0";
+		}
+		savenumb=parseInt(window.document.forms[0].mousehovertb.value);
+		savenumb+=1;
+		window.document.forms[0].mousehovertb.value=savenumb;
+
+		}
+	function decrement(){
+		var savenumb;
+		if (window.document.forms[0].mousehovertb.value==""){
+			window.document.forms[0].mousehovertb.value="0";
+		}
+		savenumb=parseInt(window.document.forms[0].mousehovertb.value);
+		savenumb-=1;
+		window.document.forms[0].mousehovertb.value=savenumb;
+
+		}
+		
+		
+	function reset(){
+		window.document.forms[0].mousehovertb.value="";
+		}
+
+</script>
+
+
+<div style="color:green;background-color:lightblue;Position:absolute;top:100;left:100" onmouseenter="increment()" >
+<form name="div1">
+INCREMENT
+</form>
+</div>
+
+<div style="color:yellow;background-color:lightblue;Position:absolute;top:100;left:350" onmouseenter="reset()">
+<form name="div2">
+RESET
+</form>
+</div>
+
+
+
+
+<div style="color:red;background-color:lightblue;Position:absolute;top:100;left:600" onmouseenter="decrement()">
+<form name="div2">
+DECREMENT
+</form>
+</div>
+
+
+
+
+</body>
+</html>

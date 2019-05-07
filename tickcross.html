@@ -1,0 +1,55 @@
+<html>
+<body>
+<form action="Shafeeq.html" onsubmit="return checkForm()"> 
+	Name:<input type="text" Name="nametf"><span id="nameismis" style="color:red;visibility:hidden">#Name is missing </span> <BR>
+	Password:<input type="text" Name="postcodetf"><span id="pcismis" style="color:red;visibility:hidden">#Post Code is missing </span> <BR>
+<div id="tick" style="Position:absolute;top:100">
+<img src="tick.jpg" onclick="submitfromcheck()">
+<img src="cross.jpg" onclick="cleartf()">
+</div>	
+
+	
+</form>
+
+<script>
+	var checkvar=0;
+	var refnameismis=window.document.getElementById("nameismis");
+	var refpostcodetf=window.document.getElementById("pcismis");
+	function checkForm(){
+		var returnsavecf=true;
+		if (window.document.forms[0].elements[0].value==""){
+			refnameismis.style.visibility="visible";
+			returnsavecf= false;
+		} else {
+			refnameismis.style.visibility="hidden";
+		}
+		if (window.document.forms[0].elements[1].value==""){
+			refpostcodetf.style.visibility="visible";
+			returnsavecf= false;
+		}  else {
+			refpostcodetf.style.visibility="hidden";
+		}
+		return returnsavecf;
+	}
+	function submitfromcheck(){
+		if (!checkForm()){
+		}else{ 
+		window.document.forms[0].submit();
+		}
+	}
+	function cleartf(){
+		window.document.forms[0].elements[0].value="";
+		refnameismis.style.visibility="hidden";
+		window.document.forms[0].elements[1].value="";
+		refpostcodetf.style.visibility="hidden";		
+	}
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

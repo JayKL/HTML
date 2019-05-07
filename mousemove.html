@@ -1,0 +1,72 @@
+<html>
+<body onmousemove="moving()">
+<div>
+<input type="text" id="nametf" onmouseover="mouseentertb()" style="Position:absolute;top:10;left:175;" ><BR>
+</div>
+<span style="Position:absolute;top:0;left:0" id="spanwithshafeeq">
+THE SHAFEEQ
+</span>
+</body>
+
+<div style="color:green;background-color:green;Position:absolute;top:100;left:100;height:50;width:50;" onmouseenter="greenct()" >
+<form name="div1">
+
+</form>
+</div>
+
+<div style="color:yellow;background-color:yellow;Position:absolute;top:100;left:350;height:50;width:50;" onmouseenter="yellowct()">
+<form name="div2">
+
+</form>
+</div>
+
+
+<div style="color:red;background-color:red;Position:absolute;top:200;left:100;height:50;width:50;" onmouseenter="redct()">
+<form name="div2">
+
+</form>
+</div>
+
+
+<div style="color:blue;background-color:blue;Position:absolute;top:200;left:350;height:50;width:50;" onmouseenter="bluect()">
+<form name="div2">
+
+</form>
+</div>
+
+<script>
+	var span=window.document.getElementById("spanwithshafeeq");
+	var fontsizemov=12;
+	function moving(){
+		span.style.top=window.event.clientY;
+		span.style.left=window.event.clientX;
+		if (window.event.altKey){
+			fontsizemov++;
+		}
+		if (window.event.ctrlKey){
+			fontsizemov--;
+		}
+		span.style.fontSize=fontsizemov;
+
+	}
+	function mouseentertb(){
+		span.innerHTML=window.document.getElementById("nametf").value;
+		span.style.color="black";
+	}
+	function clearthetb(){
+		window.document.getElementById("nametf").value="";
+	}
+	function greenct(){
+		span.style.color="green";
+	}
+	function redct(){
+		span.style.color="red";
+	}
+	function yellowct(){
+		span.style.color="yellow";
+	}
+	function bluect(){
+		span.style.color="blue";
+	}
+</script>
+</html>

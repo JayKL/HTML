@@ -14,14 +14,13 @@
 		B=window.document.FRM.T2.value;
 		if (A==""){
 			window.alert("first number is missing");
-			window.document.FRM.Focus();
+			window.document.FRM.focus();
 		}
 		else if (B==""){
 			window.alert("second number is missing");
-			window.document.FRM.Focus();
+			window.document.FRM.focus();
 		
 		}else{
-			C=A+B;
 			window.document.FRM.T3.value=parseInt(A) + parseInt(B);
 		}
 	}

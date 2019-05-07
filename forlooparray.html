@@ -1,0 +1,40 @@
+<html>
+<body>
+<form name="FRM">
+
+<input><input><input><input><input><input><input type="button"><input><input>
+
+</form>
+
+<form name="FRM">
+
+<input><input>
+
+</form>
+
+<script>
+function countInput(){
+	for (var j=0;j<window.document.forms.length;j++){
+		var currentloopvalue;
+		var textboxcount=0;
+		var lengthofforms =window.document.forms[j].length;
+			for (var i=0;i<lengthofforms;i++)
+			{
+				if (window.document.forms[j].elements[i].type=="text"){
+					currentloopvalue=window.document.forms[j].elements[i].value;
+					if (currentloopvalue==""){
+						window.document.forms[j].elements[i].focus();
+						window.alert("Empty input detected at : " + (i+1) + "        number of elements in current form: " + lengthofforms + "          number of textboxes counted in current form: " +textboxcount + "      current form is number: " + (j+1) );
+						break;
+					}
+					textboxcount++;
+				}
+			}
+	}
+}
+</script>
+ <input type="button" value="Count Number of Input" name="inputcountbtn" onclick="countInput()">
+
+
+</body>
+</html>

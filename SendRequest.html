@@ -1,0 +1,21 @@
+<html>
+<body>
+<form action="Shafeeq.html" onsubmit="return checkForm()"> 
+	Name:<input type="text" Name="nametf"><BR>
+	Post Code:<input type="text" Name="postcodetf"<BR>
+	<input type="submit" value="click to submit">
+</form>
+
+<script>
+function checkForm(){
+	if (window.document.forms[0].elements[0].value==""){
+		return false;
+	} else if (window.document.forms[0].elements[1].value==""){
+		return false;
+	}
+}
+</script>
+
+
+</body>
+</html>
